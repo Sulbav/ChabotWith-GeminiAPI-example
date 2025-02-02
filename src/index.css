@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@layer utilities {
+	.scrollbar::-webkit-scrollbar {
+	  width: 5px;
+	}
+  
+	.scrollbar::-webkit-scrollbar-track {
+	  background: transparent;
+	}
+  
+	.scrollbar::-webkit-scrollbar-thumb {
+	  background: #222;
+	  border-radius:5px;
+	  
+	}
+  
+	.scrollbar::-webkit-scrollbar-thumb:hover {
+	  background: transparent;
+	}
+  }
+
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;

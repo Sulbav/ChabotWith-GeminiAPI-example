@@ -10,14 +10,16 @@ export default function MessageCard({ message }) {
 		>
 			<div
 				className={
-					"max-w-80 rounded-2xl shadow-xl gap-4 p-2 " +
+					"max-w-80 rounded-2xl shadow-2xl gap-4 p-2 " +
 					(message.role === "model"
-						? " bg-blue-300 text-start"
-						: " bg-blue-500 justify-end")
+						? " bg-[#7d9ffa] justify-start"
+						: " bg-[#323bbf] justify-end")
 				}
 			>
-				<p className="font-medium text-md text-[#222]">
-					{message.parts}
+				<p className={"font-medium text-md text-start "+(message.role === "model" ? " text-[#222]" : " text-[#ddd]")}>
+				<strong className="text-lg">{ message.role === "user" ? "Tu: " : "Chatbot: " }</strong>
+				
+				{message.parts}
 				</p>
 			</div>
 		</div>
