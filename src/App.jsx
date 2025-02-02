@@ -7,20 +7,28 @@ function App() {
 	const mesgContainerRef = useRef(null);
 	const [chatHistory, setChatHistory] = useState([]);
 	const [userInput, setUserInput] = useState("hola");
+	const [loading, setLoading] = useState(false);
 
 	const addMessageToHistory = (role, message) => {
 		setChatHistory((prevState) => [...prevState, { role, parts: message }]);
 	};
 
 	const fecthAPI = async () => {
-		addMessageToHistory("user", userInput);
+		try {
+			setLoading(true);
+			addMessageToHistory("user", userInput);
 
-		const result = await chat.sendMessage(userInput);
+			const result = await chat.sendMessage(userInput);
 
-		
-		const text = result.response.text();
+			const text = result.response.text();
 
-		addMessageToHistory("model", text.replace(/\*([^*]+)\*/g, "$1"));
+			addMessageToHistory("model", text.replace(/\*([^*]+)\*/g, "$1"));
+		} catch (e) {
+			alert("Error al enviar el mensaje, intente de nuevo");
+			return;
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	const handleSubmit = (e) => {
@@ -42,9 +50,7 @@ function App() {
 					alt="logo"
 					className="w-96 rounded-2xl shadow-2xl"
 				/>
-				<h1 className="text-3xl font-bold text-center text-[#222]">
-					Chatbot 
-				</h1>
+				<h1 className="text-3xl font-bold text-center text-[#222]">Chatbot</h1>
 			</aside>
 
 			<main className="w-2xl p-6 backdrop-blur-3xl flex flex-col gap-4 items-center justify-center rounded-xl shadow-2xl">
@@ -56,6 +62,12 @@ function App() {
 					{chatHistory.map((message, index) => (
 						<MesssageCard key={index} message={message} />
 					))}
+
+					{loading && (
+						<div className="w-full flex items-center justify-start">
+							<strong className="text-sm text-[#222]">cargando...</strong>
+						</div>
+					)}
 				</div>
 				<form
 					className="bg-blue-100 w-full rounded-xl h-14 drop-shadow-2xl flex gap-2 px-2 items-center justify-center"
