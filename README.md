@@ -1,3 +1,3 @@
-# React + Gemini API + TailwindCSS with Vite
+# React + Gemini API + TailwindCSS 
 
 
