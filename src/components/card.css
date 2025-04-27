@@ -1,0 +1,35 @@
+.msgbox{
+  pre {
+    background: #222;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid #444;
+  
+    overflow-x: auto;
+    border-radius: 5px;
+    font-size: medium;
+  }
+
+  strong{
+    padding-inline: 10px;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 600;
+  }
+  ul{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: 400;
+    list-style: outside;
+    strong{
+      font-size: medium;
+    }
+  }
+}
+
+
