@@ -2,6 +2,9 @@ import { chat } from "./Api/geminiAI";
 import MesssageCard from "./components/MessageCard";
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import Instagram from "./components/icons/instagram";
+import Github from "./components/icons/github";
+import Linkedin from "./components/icons/linkedin";
 
 function App() {
 	const mesgContainerRef = useRef(null);
@@ -43,15 +46,49 @@ function App() {
 
 	return (
 		<main className="w-full h-screen flex  items-center ">
-			<aside className="w-80 flex h-full flex-col itens-center ">
-				<header className="w-full flex flex-col items-center justify-center p-4 ">
+			<aside className="w-80 flex h-full flex-col itens-center border-x-2 border-[#444] ">
+				<header className="w-full flex flex-col items-center justify-center p-4 border-b-2 border-[#444] ">
 					<h1 className="text-4xl font-bold  text-blue-500">Chatbot</h1>
-					<a href="https://www.instagram.com/abrahamsjz" target="blank">
-						<span className="text-sm font-semibold text-[#fff] hover:text-blue-500 duration-200 transition-all">
-							by Sulba Dev
-						</span>
-					</a>
+
+					<span className="text-sm font-semibold text-[#fff] hover:text-blue-500 duration-200 transition-all">
+						by Sulba Dev
+					</span>
 				</header>
+				<nav className="w-full flex flex-col  justify-center p-2  ">
+					<h2 className="text-xl font-medium text-white">Connect with me</h2>
+					<ul className="flex w-full flex-col justify-center gap-2 ">
+						<li className="">
+							<a
+								href="https://www.instagram.com/abrahamsjz"
+								target="blank"
+								className=" hover:text-white text-red-300 duration-300 font-medium text-ls flex gap-1"
+							>
+							<Instagram />
+								instagram
+							</a>
+						</li>
+						<li>
+							<a
+								href="https://github.com/Sulbav"
+								target="blank"
+								className=" font-medium text-ls hover:text-white text-gray-300 duration-300 flex gap-1"
+							>
+								<Github/>
+								Github
+							</a>
+						</li>
+						<li>
+							<a
+								href="https://www.linkedin.com/in/abraham-sulbaran-123baa291/"
+								target="blank"
+								className=" font-medium text-ls hover:text-white text-blue-300 duration-300 flex gap-1"
+							>
+								<Linkedin/>
+								LinkedIn
+							</a>
+						</li>
+					</ul>
+				</nav>
 			</aside>
 			<article className="w-full h-full flex flex-col items-center justify-center p-2">
 				<main className="gap-4 w-full h-full flex flex-col items-center justify-center bg-[#131212] rounded-lg p-4">
